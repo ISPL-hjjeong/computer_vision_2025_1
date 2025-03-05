@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/b094b287-5433-4de5-a348-82561221efbf)# 과제 1: 이미지 불러오기 및 그레이스케일 변환
+# 과제 1: 이미지 불러오기 및 그레이스케일 변환
 
 ## 개요 
 - OpenCV를 사용하여 이미지를 불러온 뒤, 컬러 이미지를 그레이스케일로 변환함.
@@ -10,7 +10,7 @@
 - np.hstack(): 두 이미지를 가로 방향으로 연결
 - cv2.imshow(): 창에 이미지 표시
 - cv2.waitKey(0): 키 입력 대기
-
+![image](https://github.com/user-attachments/assets/b094b287-5433-4de5-a348-82561221efbf)
 
 
 # 과제 2: 웹캠 영상에서 에지(Canny) 검출
@@ -19,11 +19,13 @@
 - 원본 영상과 에지 검출 영상을 가로로 연결(hstack)하여 실시간으로 화면에 표시
 - q 키를 누르면 종료
 
-##주요 함수
+## 주요 함수
 - cv2.VideoCapture(0): 기본 웹캠(0번) 연결
 - cv2.Canny(gray, 100, 200): 그레이스케일 영상에 Canny 에지 검출
 - cv2.waitKey(1): 1ms 동안 키 입력 대기 (실시간 스트리밍)
 - cap.release(): 웹캠 자원 해제
+
+![edge_extract](https://github.com/user-attachments/assets/35d72eb1-6444-48d4-8818-93decfa7c193)
 
 # 과제 3: 마우스로 영역 선택 및 ROI 추출
 
@@ -41,3 +43,4 @@
 - cv2.rectangle(img, pt1, pt2, color, thickness): 사각형 그리기
 - ROI 추출: roi = img[y1:y2, x1:x2]
 
+![roi](https://github.com/user-attachments/assets/e835e0bb-9fc9-45a7-a1ba-54ae6694e188)
