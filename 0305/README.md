@@ -43,4 +43,4 @@
 - cv2.rectangle(img, pt1, pt2, color, thickness): 사각형 그리기
 - ROI 추출: roi = img[y1:y2, x1:x2]
 
-![roi](https://github.com/user-attachments/assets/e835e0bb-9fc9-45a7-a1ba-54ae6694e188)
+![화면 캡처 2025-03-05 112821](https://github.com/user-attachments/assets/c7d0f91d-2fab-4e6a-8e82-8c82d55c38eb)
