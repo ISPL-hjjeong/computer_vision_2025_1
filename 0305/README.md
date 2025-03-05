@@ -10,6 +10,7 @@
 - np.hstack(): 두 이미지를 가로 방향으로 연결
 - cv2.imshow(): 창에 이미지 표시
 - cv2.waitKey(0): 키 입력 대기
+![Uploading image.png…]()
 
 
 # 과제 2: 웹캠 영상에서 에지(Canny) 검출
