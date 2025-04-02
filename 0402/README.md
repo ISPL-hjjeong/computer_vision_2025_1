@@ -131,6 +131,8 @@ plt.show()
 
 # 📌 호모그래피를 이용한 이미지 정합 (Image Alignment)
 ![image](https://github.com/user-attachments/assets/ce09cc49-e129-431a-9b8b-88960233d9b5)
+![image](https://github.com/user-attachments/assets/ad61f5f0-6bd3-4490-b6cc-fd4d241eae61)
+
 ## 📷 개요
 두 장의 이미지를 SIFT(Scale-Invariant Feature Transform)를 이용하여 정합(Alignment)한 뒤, 두 이미지가 feature 기반으로 겹치도록 합성하는 Python 코드를 설명합니다. 두 이미지 간의 공통된 특징점을 찾아 호모그래피(Homography) 행렬을 계산하고, 이를 통해 한 이미지를 다른 이미지 위에 정렬 후 블렌딩하여 시각적으로 겹치는 이미지를 생성
 
