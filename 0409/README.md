@@ -77,6 +77,8 @@ print(f"테스트 정확도: {test_acc * 100:.2f}%")
 - 테스트 데이터셋을 사용하여 모델의 최종 정확도 출력
 
 ![image](https://github.com/user-attachments/assets/0193092b-09a2-4521-8b9d-341fceca3f5b)
+![image](https://github.com/user-attachments/assets/673163a4-7846-4ece-8852-73b71c581cec)
+![image](https://github.com/user-attachments/assets/bf582fd8-fd33-4446-8f3d-53158311d7ed)
 
 ---
 
@@ -163,5 +165,7 @@ model.fit(x_train, y_train, epochs=10, batch_size=64, validation_split=0.1)
 - 검증 데이터: 훈련 데이터의 10%
 
 ---
-![image](https://github.com/user-attachments/assets/df7062b0-b053-4206-ad55-66457ff24aaf)
+![image](https://github.com/user-attachments/assets/6d830fe0-6d69-4b5c-861c-ad9f6fb2f97d)
+![image](https://github.com/user-attachments/assets/c4d48960-c0d8-42ad-a6e9-0b1bb6411c42)
+![image](https://github.com/user-attachments/assets/926d4441-12ae-4d76-acb2-2033da2099d1)
 
