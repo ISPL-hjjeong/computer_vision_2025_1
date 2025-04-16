@@ -1,4 +1,4 @@
-# 🎯 SORT 알고리즘을 활용한 다중 객체 추적기 구현
+# 🎯 과제1. SORT 알고리즘을 활용한 다중 객체 추적기 구현
 
 이 프로젝트는 [YOLOv4](https://github.com/AlexeyAB/darknet)와 [SORT (Simple Online and Realtime Tracking)](https://github.com/abewley/sort) 알고리즘을 결합하여 비디오 내 다중 객체를 실시간으로 추적하는 시스템을 구현합니다.
 
@@ -115,3 +115,82 @@ cv2.destroyAllWindows()
 
 ## 🎥 실행 결과
 실행 시, 추적된 객체에 고유 ID가 할당되고 비디오 프레임에 사각형과 함께 실시간으로 표시됩니다.
+
+----
+
+
+# 👤 과제2. Mediapipe를 활용한 얼굴 랜드마크 추출 및 시각화
+
+이 프로젝트는 Google의 [Mediapipe](https://google.github.io/mediapipe/) 라이브러리를 사용하여 **실시간으로 얼굴의 468개 랜드마크를 추출하고 시각화**하는 프로그램을 구현한 예제입니다.
+
+![image](https://github.com/user-attachments/assets/d92a80b3-4a32-475c-abe4-f2aa544838dc)
+
+## 📌 프로젝트 설명
+
+- Mediapipe의 FaceMesh 모듈을 사용해 웹캠으로부터 입력되는 영상에서 얼굴을 검출하고, 468개의 정밀한 랜드마크를 실시간으로 추출합니다.
+- 추출된 랜드마크는 `OpenCV`의 그리기 유틸을 사용해 화면에 점과 선으로 시각화됩니다.
+- ESC 키를 누르면 프로그램이 종료됩니다.
+
+## ✅ 요구사항
+
+- Mediapipe FaceMesh 모듈을 초기화하고 얼굴 랜드마크를 실시간으로 검출합니다.
+- OpenCV를 통해 웹캠 영상 스트리밍 및 화면 출력 기능을 구현합니다.
+- 검출된 468개 얼굴 랜드마크를 점 또는 연결선으로 시각화합니다.
+
+## 🧠 사용 라이브러리
+
+- [`mediapipe`](https://pypi.org/project/mediapipe/): 얼굴 랜드마크 검출
+- [`opencv-python`](https://pypi.org/project/opencv-python/): 영상 처리 및 UI
+
+## 🧪 코드 설명
+
+### FaceMesh 모듈 초기화
+```
+mp_face_mesh = mp.solutions.face_mesh
+face_mesh = mp_face_mesh.FaceMesh(
+    static_image_mode=False,
+    max_num_faces=1,
+    refine_landmarks=True,
+    min_detection_confidence=0.5,
+    min_tracking_confidence=0.5
+)
+```
+### 랜드마크 스타일 정의
+```
+mp_drawing = mp.solutions.drawing_utils
+drawing_spec = mp_drawing.DrawingSpec(thickness=1, circle_radius=1, color=(0, 255, 0))
+```
+### 웹캠 영상 스트리밍
+```
+cap = cv2.VideoCapture(0)
+
+while cap.isOpened():
+    ret, frame = cap.read()
+    if not ret:
+        break
+
+    frame = cv2.flip(frame, 1)  # 좌우 반전
+    rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+```
+### 얼굴 랜드마크 검출
+```
+results = face_mesh.process(rgb_frame)
+```
+### 얼굴에 랜드마크 표시
+```
+    if results.multi_face_landmarks:
+        for face_landmarks in results.multi_face_landmarks:
+            mp_drawing.draw_landmarks(
+                image=frame,
+                landmark_list=face_landmarks,
+                connections=mp_face_mesh.FACEMESH_TESSELATION,
+                landmark_drawing_spec=drawing_spec,
+                connection_drawing_spec=drawing_spec
+            )
+
+    cv2.imshow('FaceMesh Landmarks', frame)
+```
+
+## 🖼️ 실행 결과
+
+얼굴에 468개의 랜드마크가 점과 연결선 형태로 실시간으로 표시됩니다.
