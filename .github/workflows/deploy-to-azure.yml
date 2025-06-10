@@ -1,5 +1,5 @@
 name: Build and Deploy to Azure App Service (Python)
-
+ 
 on:
   push:
     branches:
